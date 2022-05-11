@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
 import android.widget.TextView;
-
+import android.content.Intent;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void IntentarIngresar(View view){
         TextView textoBienvenida = findViewById(R.id.welcome_text);
-        textoBienvenida.setText("FUNCIONA");
+        Intent switchActivityIntent = new Intent(this, ShowPasswords.class);
+        startActivity(switchActivityIntent);
     }
 }
