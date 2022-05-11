@@ -22,29 +22,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         createDB = findViewById(R.id.enter_button);
-
+    }
 
     public void IntentarIngresar(View view){
         TextView textoBienvenida = findViewById(R.id.welcome_text);
         Intent switchActivityIntent = new Intent(this, ShowPasswords.class);
         startActivity(switchActivityIntent);
 
-        createDB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DbHelper dbHelper = new DbHelper(MainActivity.this);
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
-                if (db!=null)
-                {
-                    Toast.makeText(MainActivity.this, "DATA BASE CREATED", Toast.LENGTH_LONG).show();
-                }
-                else
-                {
-                    Toast.makeText(MainActivity.this, "ERROR", Toast.LENGTH_LONG).show();
-                }
-              TextView textoBienvenida = findViewById(R.id.welcome_text);
-              textoBienvenida.setText("FUNCIONA");
-            }
-        });
+        DbHelper dbHelper = new DbHelper(MainActivity.this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        if (db!=null)
+        {
+            Toast.makeText(MainActivity.this, "DATA BASE CREATED", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(MainActivity.this, "ERROR", Toast.LENGTH_LONG).show();
+        }
     }
 }
