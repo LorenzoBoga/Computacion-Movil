@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.cm_passwords.db.DbHelper;
 import com.google.android.material.textfield.TextInputEditText;
@@ -35,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Toast.makeText(MainActivity.this, "ERROR", Toast.LENGTH_LONG).show();
                 }
+              TextView textoBienvenida = findViewById(R.id.welcome_text);
+              textoBienvenida.setText("FUNCIONA");
             }
         });
-        
     }
 }
