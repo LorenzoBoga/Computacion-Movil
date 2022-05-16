@@ -10,9 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CMPasswords">
         <activity
-            android:name=".ShowPasswords"
-            android:exported="false"
-            android:label="@string/title_activity_show_passwords" />
+            android:name=".BottomNavigation"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

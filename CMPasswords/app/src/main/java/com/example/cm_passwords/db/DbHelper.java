@@ -10,8 +10,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
     private static final int DB_VERSION = 1;
     private static final String DATABASE_NAME = "cmPassword.db";
-    private static final String TABLE_MAIN_PASSWORD = "t_mainPassword";
-    private static final String TABLE_PASSWORD = "t_password";
+    public static final String TABLE_MAIN_PASSWORD = "t_mainPassword";
+    public static final String TABLE_PASSWORD = "t_password";
 
     public DbHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DB_VERSION);
