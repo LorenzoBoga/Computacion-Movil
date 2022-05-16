@@ -45,6 +45,29 @@ public class DbPassword extends DbHelper{
         return false;
     }
 
+    public ArrayList<Password> getPasswords(){
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ArrayList<Password> passwords = new ArrayList<Password>();
+        Password password = null;
+
+        Cursor passwordCursor = null;
+        passwordCursor = db.rawQuery("SELECT * FROM t_password ORDER BY site ASC", null);
+        if(passwordCursor.moveToFirst()){
+            do{
+                password = new Password();
+                password.setSite(passwordCursor.getString(3));
+                password.setUser(passwordCursor.getString(1));
+                password.setPassword(passwordCursor.getString(2));
+                passwords.add(password);
+            } while (passwordCursor.moveToNext());
+        }
+
+        passwordCursor.close();
+        return passwords;
+    }
+
     public void insertPassword(String site, String user, String password){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -59,5 +82,17 @@ public class DbPassword extends DbHelper{
 
     public ArrayList<Password> showPasswords(){
         return null;
+    }
+
+    public int[] measureStrength(){
+        ArrayList<Password> passwords1 = getPasswords();
+        Password[] passwords = passwords1.toArray(new Password[0]);
+        int[] cuantityByStrength = new int[5];
+        for(int i = 0; i<passwords.length;i++){
+            int strength = passwords[i].measureStrength();
+            cuantityByStrength[strength]++;
+        }
+
+        return cuantityByStrength;
     }
 }
