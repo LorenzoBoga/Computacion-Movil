@@ -57,7 +57,26 @@ public class DbPassword extends DbHelper{
         db.insert(TABLE_PASSWORD, null, contentValues);
     }
 
-    public ArrayList<Password> showPasswords(){
-        return null;
+    public ArrayList<Password> getPasswords(){
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ArrayList<Password> passwords = new ArrayList<Password>();
+        Password password = null;
+
+        Cursor passwordCursor = null;
+        passwordCursor = db.rawQuery("SELECT * FROM t_password ORDER BY site ASC", null);
+        if(passwordCursor.moveToFirst()){
+            do{
+                password = new Password();
+                password.setSite(passwordCursor.getString(3));
+                password.setUser(passwordCursor.getString(1));
+                password.setPassword(passwordCursor.getString(2));
+                passwords.add(password);
+            } while (passwordCursor.moveToNext());
+        }
+
+        passwordCursor.close();
+        return passwords;
     }
 }
