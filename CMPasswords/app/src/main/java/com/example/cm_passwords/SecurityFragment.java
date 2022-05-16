@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import com.example.cm_passwords.db.DbPassword;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +61,23 @@ public class SecurityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_security, container, false);
+        View view = inflater.inflate(R.layout.fragment_security, container, false);
+        DbPassword dbPassword = new DbPassword(getContext());
+        int[] countByStrength = dbPassword.measureStrength();
+
+        count(countByStrength,view);
+        return view;
+    }
+    private void count(int[] countByStrength, View view){
+        TextView redCounter = view.findViewById(R.id.redCuantity);
+        redCounter.setText(""+ countByStrength[0]);
+        TextView orangeCounter = view.findViewById(R.id.orangeCuantity);
+        orangeCounter.setText(""+ countByStrength[1]);
+        TextView yellowCounter = view.findViewById(R.id.yellowCuantity);
+        yellowCounter.setText(""+ countByStrength[2]);
+        TextView lightgreenCounter = view.findViewById(R.id.lightgreenCuantity);
+        lightgreenCounter.setText(""+ countByStrength[3]);
+        TextView greenCounter = view.findViewById(R.id.greenCuantity);
+        greenCounter.setText(""+ countByStrength[4]);
     }
 }

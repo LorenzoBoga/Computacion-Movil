@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         DbHelper dbHelper = new DbHelper(MainActivity.this);
         DbPassword bdPassword = new DbPassword(MainActivity.this);
-        TextInputEditText password = findViewById(R.id.password_input);
+     /*   TextInputEditText password = findViewById(R.id.password_input);
 
         if (bdPassword.isMainPassword(password.getText().toString()))
         {
@@ -40,19 +40,21 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             Toast.makeText(MainActivity.this, "CONTRASEÑA INCORRECTA", Toast.LENGTH_LONG).show();
-        }
-/*
+        }*/
+
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         if (db!=null)
         {
             Toast.makeText(MainActivity.this, "Bienvenido", Toast.LENGTH_LONG).show();
             TextInputEditText password = findViewById(R.id.password_input);
             bdPassword.insertMainPassword(password.getText().toString());
+            Intent switchActivityIntent = new Intent(this, BottomNavigation.class);
+            startActivity(switchActivityIntent);
         }
         else
         {
             Toast.makeText(MainActivity.this, "ERROR", Toast.LENGTH_LONG).show();
-        }*/
+        }
     }
 
 }
