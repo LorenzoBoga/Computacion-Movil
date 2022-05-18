@@ -11,5 +11,9 @@
     <color name="blue">#01579B</color>
     <color name="grey">#eeeeee</color>
     <color name="darkGrey">#dddddd</color>
-    <color name="red"></color>
+    <color name="red">#E42800</color>
+    <color name="orange">#FF7C00</color>
+    <color name="yellow">#FFEC00</color>
+    <color name="lightgreen">#59FF00</color>
+    <color name="darkgreen">#1FA405</color>
 </resources>

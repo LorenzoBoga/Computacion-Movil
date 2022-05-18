@@ -1,12 +1,18 @@
 package com.example.cm_passwords;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.ClipDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,6 +75,8 @@ public class AddFragment extends Fragment {
         }
     }
 
+    ProgressBar progressBar;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -80,8 +88,7 @@ public class AddFragment extends Fragment {
         EditText siteInput = view.findViewById(R.id.Site_input);
         EditText userInput = view.findViewById(R.id.User_input);
         EditText passwordInput = view.findViewById(R.id.Password_input);
-
-        ProgressBar progressBar = view.findViewById(R.id.strengthBar);
+        progressBar = view.findViewById(R.id.strengthBar);
         TextView strengthText = view.findViewById(R.id.strength_text);
 
         passwordInput.addTextChangedListener(new TextWatcher() {
@@ -92,13 +99,16 @@ public class AddFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(passwordInput.getText().toString().equals("")){
+                    progressBar.setProgress(0);
+                    strengthText.setText("");
+                }else{
                 Password fakePsw = new Password();
                 fakePsw.setPassword(passwordInput.getText().toString());
                 switch(fakePsw.measureStrength()){
                     case 0:
                         progressBar.setProgress(20);
                         strengthText.setText("Very weak");
-                        progressBar.setBackgroundColor(C);
                         break;
                     case 1:
                         progressBar.setProgress(40);
@@ -116,7 +126,7 @@ public class AddFragment extends Fragment {
                         progressBar.setProgress(100);
                         strengthText.setText("Very strong");
                         break;
-                }
+                }}
             }
 
             @Override
@@ -141,10 +151,6 @@ public class AddFragment extends Fragment {
             }
         });
 
-
         return view;
-
-
     }
-
 }
