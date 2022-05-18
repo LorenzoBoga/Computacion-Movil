@@ -20,8 +20,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        DbPassword bdPassword = new DbPassword(MainActivity.this);
         createDB = findViewById(R.id.enter_button);
+        try{
+            bdPassword.isMainPassword("");
+        }
+        catch(Exception e)
+        {
+            Intent switchActivityIntent = new Intent(this, Registration.class);
+            startActivity(switchActivityIntent);
+        }
     }
 
     public void IntentarIngresar(View view){

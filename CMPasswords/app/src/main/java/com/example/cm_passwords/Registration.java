@@ -26,14 +26,17 @@ public class Registration extends AppCompatActivity {
 
         DbHelper dbHelper = new DbHelper(Registration.this);
         DbPassword bdPassword = new DbPassword(Registration.this);
-        TextInputEditText password = findViewById(R.id.password_input);
-        TextInputEditText password2 = findViewById(R.id.password2_input);
+        TextInputEditText passwordInput = findViewById(R.id.password_input);
+        TextInputEditText password2Input = findViewById(R.id.password2_input);
+
+        String password = passwordInput.getText().toString();
+        String password2 = password2Input.getText().toString();
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         if (db!=null && password.equals(password2))
         {
             Toast.makeText(Registration.this, "Welcome", Toast.LENGTH_LONG).show();
-            bdPassword.insertMainPassword(password.getText().toString());
+            bdPassword.insertMainPassword(password);
             Intent switchActivityIntent = new Intent(this, BottomNavigation.class);
             startActivity(switchActivityIntent);
         }

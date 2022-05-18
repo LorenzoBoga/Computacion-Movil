@@ -11,4 +11,5 @@
     <color name="blue">#01579B</color>
     <color name="grey">#eeeeee</color>
     <color name="darkGrey">#dddddd</color>
+    <color name="red"></color>
 </resources>
