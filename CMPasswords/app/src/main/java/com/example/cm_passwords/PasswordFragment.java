@@ -80,11 +80,8 @@ public class PasswordFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_password, container, false);
 
-        psw = view.findViewById(R.id.Password_input);
-        strengthBar = view.findViewById(R.id.strengthBar);
-        strengthBar.setProgress(50);
 
-        
+
         DbPassword dbPassword = new DbPassword(getContext());
 
         RecyclerView listPasswords = view.findViewById(R.id.list_passwords);

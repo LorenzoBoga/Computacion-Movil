@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.example.cm_passwords.db.DbPassword;
 
@@ -75,6 +76,11 @@ public class AddFragment extends Fragment {
         EditText siteInput = view.findViewById(R.id.Site_input);
         EditText userInput = view.findViewById(R.id.User_input);
         EditText passwordInput = view.findViewById(R.id.Password_input);
+
+        ProgressBar progressBar = view.findViewById(R.id.strengthBar);
+        progressBar.setProgress(50);
+
+        //passwordInput.addTextChangedListener();
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
