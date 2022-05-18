@@ -4,9 +4,17 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
+
+import com.example.cm_passwords.entities.Password;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,12 +61,22 @@ public class PasswordFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
+    EditText psw;
+    ProgressBar strengthBar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_password, container, false);
+        View view = inflater.inflate(R.layout.fragment_password, container, false);
+
+        psw = view.findViewById(R.id.Password_input);
+        strengthBar = view.findViewById(R.id.strengthBar);
+        strengthBar.setProgress(50);
+
+        return view;
     }
+
 }

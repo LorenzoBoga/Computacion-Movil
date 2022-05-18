@@ -4,11 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Lorenzo/Desktop/CMPasswords/app/src/main/res/layout/activity_main.xml" value="0.27717391304347827" />
+        <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/drawable/custom_input.xml" value="0.1575" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/activity_show_passwords.xml" value="0.30117753623188404" />
+        <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/fragment_add.xml" value="0.33" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/fragment_dashboard.xml" value="0.346875" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/fragment_password.xml" value="0.27807971014492755" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/fragment_security.xml" value="0.30117753623188404" />
+        <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/list_item_password.xml" value="0.27807971014492755" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14175724637681159" />
       </map>
     </option>
