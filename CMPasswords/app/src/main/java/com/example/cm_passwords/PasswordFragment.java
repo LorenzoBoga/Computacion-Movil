@@ -3,6 +3,8 @@ package com.example.cm_passwords;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
 import android.text.Editable;
@@ -15,6 +17,12 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 
 import com.example.cm_passwords.entities.Password;
+
+import com.example.cm_passwords.Adapters.PasswordListAdapter;
+import com.example.cm_passwords.db.DbPassword;
+import com.example.cm_passwords.entities.Password;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,6 +83,17 @@ public class PasswordFragment extends Fragment {
         psw = view.findViewById(R.id.Password_input);
         strengthBar = view.findViewById(R.id.strengthBar);
         strengthBar.setProgress(50);
+
+        
+        DbPassword dbPassword = new DbPassword(getContext());
+
+        RecyclerView listPasswords = view.findViewById(R.id.list_passwords);
+        listPasswords.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        ArrayList<Password> passwords = new ArrayList<>();
+
+        PasswordListAdapter adapter = new PasswordListAdapter(dbPassword.getPasswords());
+        listPasswords.setAdapter(adapter);
 
         return view;
     }
