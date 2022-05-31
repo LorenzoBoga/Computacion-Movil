@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.example.cm_passwords.entities.Password;
 
@@ -65,6 +66,7 @@ public class PasswordFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -80,6 +82,8 @@ public class PasswordFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_password, container, false);
 
+        TextView title = view.findViewById(R.id.main_title);
+        title.setText(R.string.passwords_view_title);
 
         DbPassword dbPassword = new DbPassword(getContext());
 

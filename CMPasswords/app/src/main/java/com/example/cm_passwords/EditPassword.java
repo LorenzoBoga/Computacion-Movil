@@ -38,6 +38,15 @@ public class EditPassword extends AppCompatActivity {
         progressBar = findViewById(R.id.strengthBar);
         TextView strengthText = findViewById(R.id.strength_text);
 
+        TextView title = findViewById(R.id.title_add);
+        title.setText(R.string.edit_password_title);
+        TextView siteText = findViewById(R.id.site_title);
+        siteText.setText(R.string.site_placeholder);
+        TextView userText = findViewById(R.id.user_title);
+        userText.setText(R.string.user_placeholder);
+        TextView passwordText = findViewById(R.id.password_text);
+        passwordText.setText(R.string.password_placeholder);
+
         siteInput.setText(site);
         userInput.setText(user);
         passwordInput.setText(password);

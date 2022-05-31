@@ -5,13 +5,14 @@
       <map>
         <entry key="..\:/Users/Lorenzo/Desktop/CMPasswords/app/src/main/res/layout/activity_main.xml" value="0.27717391304347827" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/drawable/custom_input.xml" value="0.1575" />
+        <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/drawable/error_custom_input.xml" value="0.128" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/drawable/icon_custom.xml" value="0.1575" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/drawable/shape.xml" value="0.1575" />
-        <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/activity_edit_password.xml" value="0.27807971014492755" />
+        <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/activity_edit_password.xml" value="0.242914979757085" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/activity_registration.xml" value="0.22" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/activity_show_passwords.xml" value="0.30117753623188404" />
-        <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/fragment_add.xml" value="0.33" />
+        <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/fragment_add.xml" value="0.19736842105263158" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/fragment_dashboard.xml" value="0.346875" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/fragment_password.xml" value="0.1" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/fragment_security.xml" value="0.30117753623188404" />

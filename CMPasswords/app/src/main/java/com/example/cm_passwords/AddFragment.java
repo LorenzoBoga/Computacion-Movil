@@ -79,9 +79,14 @@ public class AddFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_add, container, false);
 
         Button add = view.findViewById(R.id.edit_button);
+        add.setText(R.string.add_button_text);
         EditText siteInput = view.findViewById(R.id.Site_input);
+        siteInput.setHint(R.string.site_placeholder);
         EditText userInput = view.findViewById(R.id.User_input);
+        userInput.setHint(R.string.user_placeholder);
         EditText passwordInput = view.findViewById(R.id.Password_input);
+        passwordInput.setHint(R.string.password_placeholder);
+        
         progressBar = view.findViewById(R.id.strengthBar);
         TextView strengthText = view.findViewById(R.id.strength_text);
         TextView errorText = view.findViewById(R.id.error_input);
