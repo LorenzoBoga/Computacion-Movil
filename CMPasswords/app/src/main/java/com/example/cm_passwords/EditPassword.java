@@ -15,6 +15,8 @@ import com.example.cm_passwords.db.DbHelper;
 import com.example.cm_passwords.db.DbPassword;
 import com.example.cm_passwords.entities.Password;
 
+import java.util.ArrayList;
+
 public class EditPassword extends AppCompatActivity {
 
     Bundle parameters;
@@ -73,9 +75,38 @@ public class EditPassword extends AppCompatActivity {
         String password = passwordInput.getText().toString();
         Integer id = parameters.getInt("id");
 
-        bdPassword.editPasswords(site, user, password, id);
+        siteInput.setBackgroundResource(R.drawable.custom_input);
+        userInput.setBackgroundResource(R.drawable.custom_input);
+        passwordInput.setBackgroundResource(R.drawable.custom_input);
 
-        Intent switchActivityIntent = new Intent(this, BottomNavigation.class);
-        startActivity(switchActivityIntent);
+        String[] parameters = {site, user, password};
+        int missingParameter = emptyOrShort(parameters);
+        if(missingParameter != -1){
+            //errorText.setText("Complete all the parameters");
+            switch (missingParameter){
+                case 0:
+                    siteInput.setBackgroundResource(R.drawable.error_custom_input);
+                    break;
+                case 1:
+                    userInput.setBackgroundResource(R.drawable.error_custom_input);
+                    break;
+                case 2:
+                    passwordInput.setBackgroundResource(R.drawable.error_custom_input);
+                    break;
+            }
+        }else{
+            bdPassword.editPasswords(site, user, password, id);
+
+            Intent switchActivityIntent = new Intent(this, BottomNavigation.class);
+            startActivity(switchActivityIntent);
+        }
+    }
+
+    private int emptyOrShort(String[] strings){
+        for(int i = 0; i < strings.length;i++){
+            if(strings[i].equals("") || strings[i].length() < 4)
+                return i;
+        }
+        return -1;
     }
 }
