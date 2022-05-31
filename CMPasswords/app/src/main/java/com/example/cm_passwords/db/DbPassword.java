@@ -60,6 +60,7 @@ public class DbPassword extends DbHelper{
                 password.setSite(passwordCursor.getString(3));
                 password.setUser(passwordCursor.getString(1));
                 password.setPassword(passwordCursor.getString(2));
+                password.setId(passwordCursor.getInt(0));
                 passwords.add(password);
             } while (passwordCursor.moveToNext());
         }
@@ -78,6 +79,13 @@ public class DbPassword extends DbHelper{
         contentValues.put("password", password);
 
         db.insert(TABLE_PASSWORD, null, contentValues);
+    }
+
+    public void editPasswords(String site, String user, String password, Integer id){
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        db.execSQL("UPDATE t_password SET site = '" + site + "', user = '" + user + "', password = '" + password + "' WHERE id = '" + id + "' ");
     }
 
     public int[] measureStrength(){

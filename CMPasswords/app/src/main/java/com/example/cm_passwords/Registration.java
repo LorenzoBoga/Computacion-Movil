@@ -28,6 +28,11 @@ public class Registration extends AppCompatActivity {
         DbPassword bdPassword = new DbPassword(Registration.this);
         TextInputEditText passwordInput = findViewById(R.id.password_input);
         TextInputEditText password2Input = findViewById(R.id.password2_input);
+        TextView error = findViewById(R.id.regist_error_input);
+
+        passwordInput.setBackgroundResource(R.drawable.custom_input);
+        password2Input.setBackgroundResource(R.drawable.custom_input);
+        error.setText("");
 
         String password = passwordInput.getText().toString();
         String password2 = password2Input.getText().toString();
@@ -40,9 +45,17 @@ public class Registration extends AppCompatActivity {
             Intent switchActivityIntent = new Intent(this, BottomNavigation.class);
             startActivity(switchActivityIntent);
         }
+        else if(password.length()<8)
+        {
+            passwordInput.setBackgroundResource(R.drawable.error_custom_input);
+            error.setText("Enter a valid password");
+        }
         else
         {
             Toast.makeText(Registration.this, "ERROR", Toast.LENGTH_LONG).show();
+            passwordInput.setBackgroundResource(R.drawable.error_custom_input);
+            password2Input.setBackgroundResource(R.drawable.error_custom_input);
+            error.setText("Fields do not match");
         }
     }
 }

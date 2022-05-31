@@ -1,18 +1,12 @@
 package com.example.cm_passwords;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.drawable.ClipDrawable;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,12 +78,13 @@ public class AddFragment extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_add, container, false);
 
-        Button add = view.findViewById(R.id.add_button);
+        Button add = view.findViewById(R.id.edit_button);
         EditText siteInput = view.findViewById(R.id.Site_input);
         EditText userInput = view.findViewById(R.id.User_input);
         EditText passwordInput = view.findViewById(R.id.Password_input);
         progressBar = view.findViewById(R.id.strengthBar);
         TextView strengthText = view.findViewById(R.id.strength_text);
+        TextView errorText = view.findViewById(R.id.error_input);
 
         passwordInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -142,12 +137,29 @@ public class AddFragment extends Fragment {
                 String user = userInput.getText().toString();
                 String password = passwordInput.getText().toString();
 
-                DbPassword bdPassword = new DbPassword(getContext());
-                bdPassword.insertPassword(site, user, password);
+                siteInput.setBackgroundResource(R.drawable.custom_input);
+                userInput.setBackgroundResource(R.drawable.custom_input);
+                passwordInput.setBackgroundResource(R.drawable.custom_input);
 
-                siteInput.setText("");
-                userInput.setText("");
-                passwordInput.setText("");
+                DbPassword bdPassword = new DbPassword(getContext());
+                if (site.length()>0 && user.length()>0 && password.length()>0) {
+                    bdPassword.insertPassword(site, user, password);
+                    siteInput.setText("");
+                    userInput.setText("");
+                    passwordInput.setText("");
+                }
+                if(site.length()==0){
+                    errorText.setText("Complete all the parameters");
+                    siteInput.setBackgroundResource(R.drawable.error_custom_input);
+                }
+                if (user.length()==0){
+                    errorText.setText("Complete all the parameters");
+                    userInput.setBackgroundResource(R.drawable.error_custom_input);
+                }
+                if(password.length()==0){
+                    errorText.setText("Complete all the parameters");
+                    passwordInput.setBackgroundResource(R.drawable.error_custom_input);
+                }
             }
         });
 

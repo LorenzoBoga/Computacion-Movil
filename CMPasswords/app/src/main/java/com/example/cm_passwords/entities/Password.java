@@ -1,10 +1,22 @@
 package com.example.cm_passwords.entities;
 import java.util.regex.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class Password {
 
+    private Integer id;
     private String site;
     private String user;
     private String password;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getSite() {
         return site;
@@ -59,5 +71,12 @@ public class Password {
         if( (requirementsMet == 1) || (requirementsMet == 2 && !(hasMinus && hasMayus)))
             return 2;
         return 3;
+    }
+
+    public String hidePassword(){
+        String returnPassword = password;
+        returnPassword = returnPassword.replaceAll(".","*");
+        System.out.println(returnPassword);
+        return returnPassword;
     }
 }

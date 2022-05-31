@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         DbHelper dbHelper = new DbHelper(MainActivity.this);
         DbPassword bdPassword = new DbPassword(MainActivity.this);
         TextInputEditText password = findViewById(R.id.password_input);
+        password.setBackgroundResource(R.drawable.custom_input);
 
         if (bdPassword.isMainPassword(password.getText().toString()))
         {
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
+            password.setBackgroundResource(R.drawable.error_custom_input);
             Toast.makeText(MainActivity.this, "CONTRASEÑA INCORRECTA", Toast.LENGTH_LONG).show();
         }
     }

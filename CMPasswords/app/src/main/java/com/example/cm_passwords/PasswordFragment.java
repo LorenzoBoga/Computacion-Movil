@@ -81,7 +81,6 @@ public class PasswordFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_password, container, false);
 
 
-
         DbPassword dbPassword = new DbPassword(getContext());
 
         RecyclerView listPasswords = view.findViewById(R.id.list_passwords);
@@ -91,6 +90,8 @@ public class PasswordFragment extends Fragment {
 
         PasswordListAdapter adapter = new PasswordListAdapter(dbPassword.getPasswords());
         listPasswords.setAdapter(adapter);
+
+
 
         return view;
     }
