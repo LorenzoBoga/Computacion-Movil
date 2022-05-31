@@ -72,7 +72,6 @@ public class SecurityFragment extends Fragment {
         TextView rating = view.findViewById(R.id.rating_value);
         Integer ratingValue = 0;
         Integer total = 0;
-        String[] securityLevel = {"","red","orange","yellow","light green","dark green"};
 
         TextView redCounter = view.findViewById(R.id.redCuantity);
         redCounter.setText(""+ countByStrength[0]);
@@ -94,8 +93,11 @@ public class SecurityFragment extends Fragment {
         greenCounter.setText(""+ countByStrength[4]);
         ratingValue += countByStrength[4] * 5;
         total += countByStrength[4];
-        ratingValue = ratingValue/total;
-        rating.setText(securityLevel[ratingValue]);
+        if(total != 0)
+            ratingValue = ratingValue/total;
+        else
+            ratingValue = 0;
+        rating.setText(ratingValue.toString()+"/5");
     }
 
 }

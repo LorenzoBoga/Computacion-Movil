@@ -6,7 +6,11 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.text.method.TransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -141,6 +145,19 @@ public class AddFragment extends Fragment {
             }
         });
 
+        Button hidePassword = view.findViewById(R.id.show_button);
+        hidePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(hidePassword.getText().toString().equalsIgnoreCase("Show")){
+                    passwordInput.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    hidePassword.setText("Hide");
+                } else{
+                    passwordInput.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    hidePassword.setText("Show");
+                }
+            }
+        });
         return view;
     }
 }

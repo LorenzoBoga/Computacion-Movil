@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -67,6 +70,20 @@ public class EditPassword extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
 
+            }
+        });
+
+        Button hidePassword = findViewById(R.id.show_button);
+        hidePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(hidePassword.getText().toString().equalsIgnoreCase("Show")){
+                    passwordInput.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    hidePassword.setText("Hide");
+                } else{
+                    passwordInput.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    hidePassword.setText("Show");
+                }
             }
         });
     }

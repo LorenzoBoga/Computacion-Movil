@@ -92,7 +92,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="textPassword"/>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/password2_input"
@@ -104,6 +105,7 @@
         android:background="@drawable/custom_input"
         android:hint="Password"
         android:paddingStart="6pt"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
