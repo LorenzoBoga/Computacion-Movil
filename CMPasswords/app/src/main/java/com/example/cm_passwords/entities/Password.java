@@ -1,4 +1,8 @@
 package com.example.cm_passwords.entities;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
 import java.util.regex.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -78,5 +82,36 @@ public class Password {
         returnPassword = returnPassword.replaceAll(".","*");
         System.out.println(returnPassword);
         return returnPassword;
+    }
+
+    public static void changeStrenghtBar(EditText passwordInput, ProgressBar progressBar, TextView strengthText){
+        if(passwordInput.getText().toString().equals("")){
+            progressBar.setProgress(0);
+            strengthText.setText("");
+        }else{
+            Password fakePsw = new Password();
+            fakePsw.setPassword(passwordInput.getText().toString());
+            switch(fakePsw.measureStrength()){
+                case 0:
+                    progressBar.setProgress(20);
+                    strengthText.setText("Very weak");
+                    break;
+                case 1:
+                    progressBar.setProgress(40);
+                    strengthText.setText("Weak");
+                    break;
+                case 2:
+                    progressBar.setProgress(60);
+                    strengthText.setText("Medium");
+                    break;
+                case 3:
+                    progressBar.setProgress(80);
+                    strengthText.setText("Strong");
+                    break;
+                case 4:
+                    progressBar.setProgress(100);
+                    strengthText.setText("Very strong");
+                    break;
+            }}
     }
 }

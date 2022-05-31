@@ -4,17 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.cm_passwords.db.DbHelper;
 import com.example.cm_passwords.db.DbPassword;
+import com.example.cm_passwords.entities.Password;
 
 public class EditPassword extends AppCompatActivity {
 
     Bundle parameters;
-
+    EditText passwordInput;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,11 +32,32 @@ public class EditPassword extends AppCompatActivity {
 
         EditText siteInput = findViewById(R.id.Site_input);
         EditText userInput = findViewById(R.id.User_input);
-        EditText passwordInput = findViewById(R.id.Password_input);
+        passwordInput = findViewById(R.id.Password_input);
+        progressBar = findViewById(R.id.strengthBar);
+        TextView strengthText = findViewById(R.id.strength_text);
 
         siteInput.setText(site);
         userInput.setText(user);
         passwordInput.setText(password);
+
+        Password.changeStrenghtBar(passwordInput,progressBar,strengthText);
+
+        passwordInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Password.changeStrenghtBar(passwordInput,progressBar,strengthText);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
     }
 
     public void editPassword(View view){

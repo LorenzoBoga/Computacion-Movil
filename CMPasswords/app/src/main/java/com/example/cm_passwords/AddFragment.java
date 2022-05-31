@@ -94,34 +94,7 @@ public class AddFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(passwordInput.getText().toString().equals("")){
-                    progressBar.setProgress(0);
-                    strengthText.setText("");
-                }else{
-                Password fakePsw = new Password();
-                fakePsw.setPassword(passwordInput.getText().toString());
-                switch(fakePsw.measureStrength()){
-                    case 0:
-                        progressBar.setProgress(20);
-                        strengthText.setText("Very weak");
-                        break;
-                    case 1:
-                        progressBar.setProgress(40);
-                        strengthText.setText("Weak");
-                        break;
-                    case 2:
-                        progressBar.setProgress(60);
-                        strengthText.setText("Medium");
-                        break;
-                    case 3:
-                        progressBar.setProgress(80);
-                        strengthText.setText("Strong");
-                        break;
-                    case 4:
-                        progressBar.setProgress(100);
-                        strengthText.setText("Very strong");
-                        break;
-                }}
+                Password.changeStrenghtBar(passwordInput,progressBar,strengthText);
             }
 
             @Override
