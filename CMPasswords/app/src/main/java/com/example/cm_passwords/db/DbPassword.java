@@ -81,6 +81,13 @@ public class DbPassword extends DbHelper{
         db.insert(TABLE_PASSWORD, null, contentValues);
     }
 
+    public void deletePassword(Integer id){
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        db.execSQL("DELETE FROM t_password WHERE id = '" + id + "'");
+    }
+
     public void editPasswords(String site, String user, String password, Integer id){
         DbHelper dbHelper = new DbHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();

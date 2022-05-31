@@ -15,13 +15,16 @@
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/fragment_password.xml" value="0.1" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/fragment_security.xml" value="0.30117753623188404" />
         <entry key="..\:/Users/Lorenzo/Desktop/Computacion-Movil/CMPasswords/app/src/main/res/layout/list_item_password.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/custom_input.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/delete_button.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/shape.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_bottom_navigation.xml" value="0.15806159420289856" />
-        <entry key="app/src/main/res/layout/activity_edit_password.xml" value="0.14845733642578124" />
+        <entry key="app/src/main/res/layout/activity_edit_password.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14175724637681159" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.25041083736696107" />
         <entry key="app/src/main/res/layout/fragment_add.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_password.xml" value="0.15806159420289856" />
+        <entry key="app/src/main/res/layout/fragment_security.xml" value="0.2125" />
         <entry key="app/src/main/res/layout/list_item_password.xml" value="0.2474365234375" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2125" />
         <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.2125" />

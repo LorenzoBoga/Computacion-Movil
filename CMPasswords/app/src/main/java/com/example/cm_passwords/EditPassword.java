@@ -52,4 +52,16 @@ public class EditPassword extends AppCompatActivity {
         Intent switchActivityIntent = new Intent(this, BottomNavigation.class);
         startActivity(switchActivityIntent);
     }
+
+    public void deletePassword(View view){
+        DbHelper dbHelper = new DbHelper(EditPassword.this);
+        DbPassword bdPassword = new DbPassword(EditPassword.this);
+
+        Integer id = parameters.getInt("id");
+
+        bdPassword.deletePassword(id);
+
+        Intent switchActivityIntent = new Intent(this, BottomNavigation.class);
+        startActivity(switchActivityIntent);
+    }
 }
